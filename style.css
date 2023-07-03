@@ -8,13 +8,13 @@ body{
     display: flex;
     justify-content: center;
     margin: 150px auto;
-    height: 400px;
-    width:400px;
+    height: 600px;
+    width:600px;
 }
 
 #game-layer1{
-    height: 420px;
-    width:420px;
+    height: 504px;
+    width:504px;
     background-color: black;
     border-radius: 50%;
     position: absolute;
@@ -24,15 +24,15 @@ body{
 button{
     border-top-right-radius: 100%;
     border:solid black 1px;
-    height: 190px;
-    width:190px;
+    height: 228px;
+    width:228px;
     position: absolute;
     z-index: 2;
 }
 
 .red{
-    margin-top: 15px;
-    margin-left: 200px;
+    margin-top: 18px;
+    margin-left: 240px;
     background-color: red;
     box-shadow: 4px 4px 0px rgb(138, 20, 20);
 }
@@ -43,8 +43,8 @@ button{
 }
 
 .yellow{
-    margin-top: 15px;
-    margin-left: -200px;
+    margin-top: 18px;
+    margin-left: -240px;
     background-color:yellow;
     box-shadow: -3px 3px 0px rgb(183, 183, 36);
     transform: rotate(270deg);
@@ -57,8 +57,8 @@ button{
 
 
 .blue{
-    margin-top: 215px;
-    margin-left: 200px;
+    margin-top: 258px;
+    margin-left: 240px;
     background-color: blue;
     box-shadow: 4px -4px 0px rgb(13, 22, 129);
     transform: rotate(90deg);
@@ -71,8 +71,8 @@ button{
 }
 
 .green{
-    margin-top: 215px;
-    margin-left: -200px;
+    margin-top: 258px;
+    margin-left: -240px;
     background-color:green;
     box-shadow: 4px -4px 0px rgb(10, 85, 27);
     transform: rotate(180deg);
@@ -86,9 +86,9 @@ button{
 .inner-circle{
     position: absolute;
     background-color: black;
-    margin-top: 109px;
-    width: 200px;
-    height: 200px;
+    margin-top: 130px;
+    width: 240px;
+    height: 240px;
     border-radius: 50%;
     z-index: 3;
     display: flex;

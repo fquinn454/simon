@@ -1,3 +1,4 @@
+// import sound files from freecodecamp
 const greenSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3')
 const redSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3')
 const blueSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3')
