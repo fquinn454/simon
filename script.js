@@ -21,3 +21,16 @@ function playYellowSound(){
     yellowSound.play()
 }
 
+// button to start game
+
+// function to randomly pick color for computer sequence
+
+// function to play computer sequence
+
+// function to listen to user input sequence
+
+// function to compare user sequence to computer sequence
+
+// function to return current user sequence length
+
+// function to return longest user sequence in this session
