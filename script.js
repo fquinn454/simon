@@ -22,6 +22,8 @@ let computerSequence = [];
 let positionInComputerSequence = 0;
 let currentCount = 0;
 let longestSequence = 0;
+updateCount();
+updateLongest();
 
 
 // Run at end of game to display game-over screen 

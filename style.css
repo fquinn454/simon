@@ -6,7 +6,9 @@ body{
 #score-boards{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    width:100%;
+    margin: 0 auto;
     font-family: orbitron;
     font-weight: bolder;
     color: red;
@@ -19,8 +21,6 @@ body{
     width: fit-content;
     height: fit-content;
 }
-
-
 
 .game-container{
     display: flex;
@@ -75,7 +75,6 @@ body{
 .red:focus{
     transition: background-color 0.5s ease-out;
 }
-
 
 .yellow{
     margin-top: 15px;
@@ -146,6 +145,69 @@ button{
     cursor: pointer;
 }
 
+@media only screen and (min-width: 1400px){
+    .game-container{
+        height: 596px;
+        width:596px;
+    }
+    
+    #game-layer1{
+        height: 588px;
+        width:588px;
+    }
+
+    #game-over{
+        width:90%;
+    }
+    
+    .game-btn {
+        height: 267px;
+        width: 267px;
+    }
+
+    .red{
+        margin-top: 20px;
+        margin-left: 280px;
+        box-shadow: 2px 2px 0px rgb(138, 20, 20);
+    }
+
+    .yellow{
+        margin-top: 20px;
+        margin-left: -280px;
+        box-shadow: -2px 2px 0px rgb(183, 183, 36);
+    }
+      
+    .blue{
+        margin-top: 300px;
+        margin-left: 280px;
+        box-shadow: 3px -1px 0px rgb(13, 22, 129);
+    }
+    
+    .green{
+        margin-top: 300px;
+        margin-left: -280px;
+        box-shadow: 3px -1px 0px rgb(10, 85, 27);
+    }
+    
+    .inner-circle{
+        margin-top: 152px;
+        width: 280px;
+        height: 280px;
+    }
+
+    #score-boards{
+        font-size: 32px;
+    }
+
+    button{
+        width: 250px;
+        font-size: 32px;
+        height: 60px;
+
+    }
+}
+
+
 @media only screen and (min-width: 300px) and (max-width:600px){
     .game-container{
         height: 298px;
@@ -200,7 +262,12 @@ button{
         width: 150px;
         font-size: 22px;
         height: 40px;
+    }
 
+    #score-boards{
+        width:100%;
+        padding: 2% 1%;
+        justify-content: space-between;
     }
 }
 
