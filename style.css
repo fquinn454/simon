@@ -1,7 +1,26 @@
 body{
-    background-color: #1eb0d2;
+    background-color: #7dbac8;
     font-family: 'Shrikhand', cursive;
 }
+
+#score-boards{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: orbitron;
+    font-weight: bolder;
+    color: red;
+    background-color: maroon;
+    padding: 20px 5px;
+    border-radius: 5px;
+}
+
+#count, #longest-count{
+    width: fit-content;
+    height: fit-content;
+}
+
+
 
 .game-container{
     display: flex;
@@ -136,6 +155,10 @@ button{
     #game-layer1{
         height: 294px;
         width:294px;
+    }
+
+    #game-over{
+        width:90%;
     }
     
     .game-btn {

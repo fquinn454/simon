@@ -11,6 +11,9 @@ const redBtn = document.getElementById('red-btn');
 const blueBtn = document.getElementById('blue-btn');
 const yellowBtn = document.getElementById('yellow-btn');
 const greenBtn = document.getElementById('green-btn');
+const gameBtns = [startBtn, redBtn, blueBtn, yellowBtn, greenBtn]
+const count = document.getElementById('count');
+const longestCount = document.getElementById('longest-count');
 
 // Set initial variables
 let simonTurn = true;
@@ -33,6 +36,18 @@ function changeDisplayGameStart(){
     document.getElementById('game-over').style.display = 'none';
 }
 
+// Called to update score boards
+
+// Length of current correct sequence
+function updateCount(){
+    count.innerHTML = currentCount;
+}
+// Length of longest correct sequence
+function updateLongest(){
+    longestCount.innerHTML = longestSequence;
+}
+
+
 // Called when start button pressed to reset initial variables and start game
 function startNewGame(){
     simonTurn = true;
@@ -40,6 +55,8 @@ function startNewGame(){
     computerSequence = [];
     positionInComputerSequence = 0;
     currentCount = 0;
+    updateCount();
+    updateLongest();
     changeDisplayGameStart();
     playGame();
 }
@@ -84,11 +101,12 @@ function userCorrect(){
         checkCount()
         // Simon's Turn
         simonTurn = true;
+        updateCount();
+        updateLongest();
         playGame()
     }
     else{
         // increase current count and check largest sequence, wait for next user buttonClicked(event)
-        currentCount++
         checkCount()
         playGame()
     }
