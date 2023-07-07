@@ -1,4 +1,4 @@
-// import sound files from freecodecamp
+// import sound files (downloaded from freecodecamp)
 const greenSound = new Audio('./sounds/greenSound.mp3');
 const redSound = new Audio('./sounds/redSound.mp3');
 const blueSound = new Audio('./sounds/blueSound.mp3');
@@ -24,6 +24,7 @@ function startNewGame(){
     computerSequence = [];
     positionInComputerSequence = 0;
     currentCount = 0;
+    changeDisplayGameStart();
     playGame();
 }
 
@@ -33,15 +34,26 @@ function playGame(){
     if(playing){
         // computer's turn
         if(simonTurn){
-            console.log('simon turn')
             computerTurn()
+        }
+        if(!simonTurn){
         }
         // Wait for user input as buttonClicked(event)
 
     }
     if(!playing){
-        console.log("Game Over");
+        changeDisplayGameOver();
     }
+}
+
+function changeDisplayGameOver(){
+    document.getElementById('game-container').style.display = 'none';
+    document.getElementById('game-over').style.display = 'flex';
+}
+
+function changeDisplayGameStart(){
+    document.getElementById('game-container').style.display = 'flex';
+    document.getElementById('game-over').style.display = 'none';
 }
 
 // function check if currentCount > Longest Sequence
@@ -53,7 +65,6 @@ function checkCount(){
 
 function userCorrect(){
     positionInComputerSequence++;
-    console.log(positionInComputerSequence)
     // user has entered the entire computerSequence correctly
     if(positionInComputerSequence+1 > computerSequence.length){
         positionInComputerSequence = 0;
@@ -131,7 +142,6 @@ function buttonClicked(event){
 function pickRandom(){
     const choice = Math.floor(Math.random() * 4)
     computerSequence.push(choice);
-    console.log(computerSequence)
 }
 
 // function for computer's turn
@@ -142,6 +152,7 @@ function computerTurn(){
     for(let i=0; i<computerSequence.length; i++){
         setTimeout(() => playDelayedSequence(computerSequence, i), 1+i*800);
     }
+
     // Now Player's Turn
     simonTurn = false;
     // Run playGame() for player's turn
