@@ -1,16 +1,18 @@
-// import sound files (downloaded from freecodecamp originally)
+// create audio objects from sound files (downloaded from freecodecamp originally)
 const greenSound = new Audio('./sounds/greenSound.mp3');
 const redSound = new Audio('./sounds/redSound.mp3');
 const blueSound = new Audio('./sounds/blueSound.mp3');
 const yellowSound = new Audio('./sounds/yellowSound.mp3');
 const errorSound = new Audio('./sounds/error.wav');
 
-// Game Setup and state variables
+// create button variables for user later
 const startBtn = document.getElementById('start-btn');
 const redBtn = document.getElementById('red-btn');
 const blueBtn = document.getElementById('blue-btn');
 const yellowBtn = document.getElementById('yellow-btn');
 const greenBtn = document.getElementById('green-btn');
+
+// Set initial variables
 let simonTurn = true;
 let playing = true;
 let computerSequence = [];
@@ -31,7 +33,7 @@ function changeDisplayGameStart(){
     document.getElementById('game-over').style.display = 'none';
 }
 
-// Called when start button pressed to reset state variables and start game
+// Called when start button pressed to reset initial variables and start game
 function startNewGame(){
     simonTurn = true;
     playing = true;
@@ -44,7 +46,7 @@ function startNewGame(){
 
 // Called throughout to play the game
 function playGame(){
-    // if still playing game
+    // if still playing game, no user mistakes in sequence
     if(playing){
         // computer's turn
         if(simonTurn){
@@ -55,6 +57,7 @@ function playGame(){
         }
         
     }
+    // user mistake entering sequence
     if(!playing){
         changeDisplayGameOver();
     }
