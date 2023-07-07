@@ -36,10 +36,15 @@ body{
     box-shadow: 4px 4px 0px rgb(138, 20, 20);
 }
 
-.red:active{
+.red:active, .red:focus{
     background-color: #f86b6b;
     box-shadow: none;
 }
+
+.red:focus{
+    transition: background-color 0.5s ease-out;
+}
+
 
 .yellow{
     margin-top: 15px;
@@ -49,20 +54,20 @@ body{
     transform: rotate(270deg);
 }
 
-.yellow:active{
+.yellow:active, .yellow:focus{
     background-color: #ffff7d;
     box-shadow: none;
 }
 
-.blue{
+.blue {
     margin-top: 215px;
     margin-left: 200px;
     background-color: blue;
-    box-shadow: 4px -4px 0px rgb(13, 22, 129);
+    box-shadow: 3px -4px 0px rgb(13, 22, 129);
     transform: rotate(90deg);
 }
 
-.blue:active{
+.blue:active, .blue:focus{
     background-color: #5e5edf;
     box-shadow: none;
 }
@@ -71,11 +76,11 @@ body{
     margin-top: 215px;
     margin-left: -200px;
     background-color:green;
-    box-shadow: 4px -4px 0px rgb(10, 85, 27);
+    box-shadow: 3px -4px 0px rgb(10, 85, 27);
     transform: rotate(180deg);
 }
 
-.green:active{
+.green:active, .green:focus{
     background-color:#9ce89c;
     box-shadow: none;
 }
@@ -107,6 +112,7 @@ button{
     background-color: black;
     color:white;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 @media only screen and (min-width: 300px) and (max-width:600px){

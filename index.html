@@ -4,7 +4,7 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet" type='text/css'>
+        <link href="https://fonts.googleapis.com/css2?family=Shrikhand" rel="stylesheet" type='text/css'>
         <link rel="stylesheet" href="./style.css" type='text/css'>
         <script src="./script.js" defer></script>
         <title>Simon Game</title>
@@ -12,14 +12,14 @@
     <body>
         <div class="game-container">
             <div id="game-layer1"></div>
-            <button class="game-btn red" onclick="playRedSound()"></button>
-            <button class="game-btn blue" onclick="playBlueSound()"></button>
-            <button class="game-btn yellow" onclick="playYellowSound()"></button>
-            <button class="game-btn green" onclick="playGreenSound()"></button>
+            <button id="red-btn" class="game-btn red" onclick="buttonClicked(event)"></button>
+            <button id="blue-btn" class="game-btn blue" onclick="buttonClicked(event)"></button>
+            <button id="yellow-btn" class="game-btn yellow" onclick="buttonClicked(event)"></button>
+            <button id="green-btn" class="game-btn green" onclick="buttonClicked(event)"></button>
             <div class="inner-circle"><h1>SIMON</h1></div>
         </div>
         <div class="counters">
-            <button id="start-btn">New Game</button>
+            <button id="start-btn" onclick="startPlaying()">New Game</button>
         </div>
     </body>
 </html>
