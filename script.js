@@ -1,11 +1,11 @@
-// import sound files (downloaded from freecodecamp)
+// import sound files (downloaded from freecodecamp originally)
 const greenSound = new Audio('./sounds/greenSound.mp3');
 const redSound = new Audio('./sounds/redSound.mp3');
 const blueSound = new Audio('./sounds/blueSound.mp3');
 const yellowSound = new Audio('./sounds/yellowSound.mp3');
 const errorSound = new Audio('./sounds/error.wav');
 
-// Game Setup
+// Game Setup and state variables
 const startBtn = document.getElementById('start-btn');
 const redBtn = document.getElementById('red-btn');
 const blueBtn = document.getElementById('blue-btn');
@@ -18,6 +18,20 @@ let positionInComputerSequence = 0;
 let currentCount = 0;
 let longestSequence = 0;
 
+
+// Run at end of game to display game-over screen 
+function changeDisplayGameOver(){
+    document.getElementById('game-container').style.display = 'none';
+    document.getElementById('game-over').style.display = 'flex';
+}
+
+// Run at start of game to remove game-over screen
+function changeDisplayGameStart(){
+    document.getElementById('game-container').style.display = 'flex';
+    document.getElementById('game-over').style.display = 'none';
+}
+
+// Called when start button pressed to reset state variables and start game
 function startNewGame(){
     simonTurn = true;
     playing = true;
@@ -28,7 +42,7 @@ function startNewGame(){
     playGame();
 }
 
-// function to start game
+// Called throughout to play the game
 function playGame(){
     // if still playing game
     if(playing){
@@ -37,32 +51,27 @@ function playGame(){
             computerTurn()
         }
         if(!simonTurn){
+            // Wait for user input as buttonClicked(event)
         }
-        // Wait for user input as buttonClicked(event)
-
+        
     }
     if(!playing){
         changeDisplayGameOver();
     }
 }
 
-function changeDisplayGameOver(){
-    document.getElementById('game-container').style.display = 'none';
-    document.getElementById('game-over').style.display = 'flex';
-}
-
-function changeDisplayGameStart(){
-    document.getElementById('game-container').style.display = 'flex';
-    document.getElementById('game-over').style.display = 'none';
-}
-
-// function check if currentCount > Longest Sequence
+/*
+Game tracks users longest correct sequence in this session
+If current correct sequence length is greater than saved longest sequence
+Update longest sequence
+*/
 function checkCount(){
     if(currentCount > longestSequence){
         longestSequence = currentCount;
     }
 }
 
+// Called when user has got next item in computerSequence correct
 function userCorrect(){
     positionInComputerSequence++;
     // user has entered the entire computerSequence correctly
@@ -82,14 +91,14 @@ function userCorrect(){
     }
 }
 
-// User gives incorrect button in computerSequence
+// Called when user gets next item in computerSequence incorrect
 function userIncorrect(){
     errorSound.play();
     playing = false;
     playGame()
 }
 
-// function to pass on button clicked info to player's turn
+// function to pass button clicked info to playGame() when !simonTurn
 function buttonClicked(event){
     let btn = event.target.id;
     if(btn === 'red-btn'){
@@ -137,14 +146,13 @@ function buttonClicked(event){
     }
 }
 
-
-// function to randomly pick next colour for computer sequence
+// Randomly pick next colour for computer sequence
 function pickRandom(){
     const choice = Math.floor(Math.random() * 4)
     computerSequence.push(choice);
 }
 
-// function for computer's turn
+// Called when Simon takes its turn
 function computerTurn(){
     // add a random number 0-4 to the computerSequence
     pickRandom()
@@ -160,7 +168,7 @@ function computerTurn(){
     
 }
 
-// light button, play sound, blur button
+// Light up colored button, play its sound and turn its light off again when clicked
 function clickRedButton(){
     redBtn.focus()
     redSound.play()
@@ -185,7 +193,7 @@ function clickGreenButton(){
     setTimeout(() => greenBtn.blur(), 700);
 }
 
-// function to play computer sequence
+// Called to play the computer's sequence by flasing button lights
 function playSequence(sequence, i){
     if (sequence[i] === 0) {
         clickRedButton();
@@ -201,6 +209,7 @@ function playSequence(sequence, i){
     } 
 }
 
+// Adds a short delay before starting playSequence(), avoids sound overlap buzzing
 function playDelayedSequence(sequence, i){
     setTimeout(() => playSequence(sequence, i), 800);
 }
