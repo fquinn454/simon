@@ -15,6 +15,7 @@ body{
     background-color: maroon;
     padding: 20px 5px;
     border-radius: 5px;
+    font-size: 24px;
 }
 
 #count, #longest-count{
@@ -145,7 +146,7 @@ button{
     cursor: pointer;
 }
 
-@media only screen and (min-width: 1400px){
+@media only screen and (min-width: 1600px){
     .game-container{
         height: 596px;
         width:596px;
