@@ -4,7 +4,8 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Shrikhand&display=swap"  rel="stylesheet" type='text/css'>
+        <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+        <link href = "https://fonts.googleapis.com/css?family=Orbitron&effect=neon" rel="stylesheet">
         <link rel="stylesheet" href="./reset.css" type="text/css">
         <link rel="stylesheet" href="./style.css" type='text/css'>
         <script src="./script.js" defer></script>
@@ -13,9 +14,13 @@
     <body>
         <div id="score-boards">
            <div>Count&nbsp:&nbsp<span id="count"></span></div>
+           <div>Level&nbsp:&nbsp<span id="level"></span></div>
            <div>Best&nbsp:&nbsp<span id="longest-count"></span></div> 
         </div>
-        <div id="game-over">Game Over</div>
+        <div id="message-container">
+            <div id="game-over-message">Game Over</div>
+            <div class="font-effect-neon" id="message"></div>
+        </div>
         <div id="game-container" class="game-container">
             <div id="game-layer1"></div>
             <button id="red-btn" class="game-btn red" onclick="buttonClicked(event)"></button>

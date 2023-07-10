@@ -4,6 +4,8 @@ const redSound = new Audio('./sounds/redSound.mp3');
 const blueSound = new Audio('./sounds/blueSound.mp3');
 const yellowSound = new Audio('./sounds/yellowSound.mp3');
 const errorSound = new Audio('./sounds/error.wav');
+const winSound = new Audio('./sounds/ta-da.mp3');
+const messages = ['Nice!', 'Great!', 'Fantastic!', 'Awesome!', 'Respect!'];
 
 // create button variables for user later
 const startBtn = document.getElementById('start-btn');
@@ -14,8 +16,12 @@ const greenBtn = document.getElementById('green-btn');
 const gameBtns = [startBtn, redBtn, blueBtn, yellowBtn, greenBtn]
 const count = document.getElementById('count');
 const longestCount = document.getElementById('longest-count');
+const level = document.getElementById('level');
+const message = document.getElementById('message');
 
 // Set initial variables
+let gameOver = false;
+let levelNum = 1;
 let simonTurn = true;
 let playing = true;
 let computerSequence = [];
@@ -24,18 +30,31 @@ let currentCount = 0;
 let longestSequence = 0;
 updateCount();
 updateLongest();
+updateLevel();
 
 
 // Run at end of game to display game-over screen 
 function changeDisplayGameOver(){
     document.getElementById('game-container').style.display = 'none';
-    document.getElementById('game-over').style.display = 'flex';
+    document.getElementById('message-container').style.display = 'flex';
+    document.getElementById('game-over-message').style.display = 'block';
+    message.style.display = 'none';
+}
+
+// Run when user completes level
+function changeDisplayLevelComplete(){
+    document.getElementById('game-over-message').style.display = 'none';
+    document.getElementById('game-container').style.display = 'none';  
+    document.getElementById('message-container').style.display = 'flex';
+    message.style.display = 'block';
+    message.innerHTML = messages[levelNum - 1];
+
 }
 
 // Run at start of game to remove game-over screen
 function changeDisplayGameStart(){
     document.getElementById('game-container').style.display = 'flex';
-    document.getElementById('game-over').style.display = 'none';
+    document.getElementById('message-container').style.display = 'none';
 }
 
 // Called to update score boards
@@ -49,9 +68,15 @@ function updateLongest(){
     longestCount.innerHTML = longestSequence;
 }
 
+// Level number
+function updateLevel(){
+    level.innerHTML = levelNum;
+}
+
 
 // Called when start button pressed to reset initial variables and start game
 function startNewGame(){
+    gameOver = false;
     simonTurn = true;
     playing = true;
     computerSequence = [];
@@ -59,6 +84,7 @@ function startNewGame(){
     currentCount = 0;
     updateCount();
     updateLongest();
+    updateLevel();
     changeDisplayGameStart();
     playGame();
 }
@@ -74,12 +100,55 @@ function playGame(){
         if(!simonTurn){
             // Wait for user input as buttonClicked(event)
         }
-        
     }
-    // user mistake entering sequence
+    
     if(!playing){
-        changeDisplayGameOver();
+        // user mistake entering sequence
+        if(gameOver){
+            changeDisplayGameOver();  
+        }
+        // level complete
+        if(!gameOver){
+            changeDisplayLevelComplete();
+            if(levelNum < 5){
+                console.log(levelNum);
+                levelNum++;
+            }
+           
+        }
     }
+}
+
+// Returns true if level complete
+function levelComplete(){
+    if(levelNum === 1){
+        if(positionInComputerSequence-1 === 1){
+            return true;
+        }
+    }
+    if(levelNum === 2){
+        if(positionInComputerSequence-1 === 2){
+            return true;
+        }
+    }
+    if(levelNum === 3){
+        if(positionInComputerSequence-1 === 3){
+            return true;
+        }
+    }
+    if(levelNum === 4){
+        if(positionInComputerSequence-1 === 4){
+            return true;
+        }
+    }
+    if(levelNum === 5){
+        if(positionInComputerSequence-1 === 5){
+            return true;
+        }
+    }
+    
+    return false;
+    
 }
 
 /*
@@ -98,6 +167,9 @@ function userCorrect(){
     positionInComputerSequence++;
     // user has entered the entire computerSequence correctly
     if(positionInComputerSequence+1 > computerSequence.length){
+        if(levelComplete()){
+            playing = false;
+        }
         positionInComputerSequence = 0;
         currentCount++
         checkCount()
@@ -118,6 +190,7 @@ function userCorrect(){
 function userIncorrect(){
     errorSound.play();
     playing = false;
+    gameOver = true;
     playGame()
 }
 
@@ -236,6 +309,3 @@ function playSequence(sequence, i){
 function playDelayedSequence(sequence, i){
     setTimeout(() => playSequence(sequence, i), 800);
 }
-
-
-
