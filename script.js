@@ -122,27 +122,27 @@ function playGame(){
 // Returns true if level complete
 function levelComplete(){
     if(levelNum === 1){
-        if(positionInComputerSequence-1 === 1){
+        if(positionInComputerSequence-1 === 7){
             return true;
         }
     }
     if(levelNum === 2){
-        if(positionInComputerSequence-1 === 2){
+        if(positionInComputerSequence-1 === 11){
             return true;
         }
     }
     if(levelNum === 3){
-        if(positionInComputerSequence-1 === 3){
+        if(positionInComputerSequence-1 === 17){
             return true;
         }
     }
     if(levelNum === 4){
-        if(positionInComputerSequence-1 === 4){
+        if(positionInComputerSequence-1 === 23){
             return true;
         }
     }
     if(levelNum === 5){
-        if(positionInComputerSequence-1 === 5){
+        if(positionInComputerSequence-1 === 30){
             return true;
         }
     }
@@ -169,6 +169,7 @@ function userCorrect(){
     if(positionInComputerSequence+1 > computerSequence.length){
         if(levelComplete()){
             playing = false;
+
         }
         positionInComputerSequence = 0;
         currentCount++
