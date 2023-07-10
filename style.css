@@ -3,26 +3,6 @@ body{
     font-family: 'Shrikhand', cursive;
 }
 
-#score-boards{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width:100%;
-    margin: 0 auto;
-    font-family: orbitron;
-    font-weight: bolder;
-    color: red;
-    background-color: maroon;
-    padding: 20px 5px;
-    border-radius: 5px;
-    font-size: 24px;
-}
-
-#count, #longest-count{
-    width: fit-content;
-    height: fit-content;
-}
-
 .game-container{
     display: flex;
     justify-content: center;
@@ -40,18 +20,6 @@ body{
     z-index: 1;
 }
 
-#game-over{
-    display: none;
-    justify-content: center;
-    align-items: center;
-    font-size: 28px;
-    height: 420px;
-    width:420px;
-    background-color: #4e4b4b;
-    color: white;
-    margin: 50px auto;
-}
-
 .game-btn {
     border-top-right-radius: 100%;
     border:solid black 1px;
@@ -64,8 +32,8 @@ body{
 .red{
     margin-top: 15px;
     margin-left: 200px;
-    background-color: #ca0d0d;
-    box-shadow: 4px 4px 0px #ca0d0d;;
+    background-color: #980b0b;
+    box-shadow: 4px 4px 0px #980b0b;
 }
 
 .red:active, .red:focus{
@@ -80,8 +48,8 @@ body{
 .yellow{
     margin-top: 15px;
     margin-left: -200px;
-    background-color:rgb(187 187 5);
-    box-shadow: -3px 3px 0px rgb(187 187 5);
+    background-color:rgb(141 141 8);
+    box-shadow: -3px 3px 0px rgb(141 141 8);
     transform: rotate(270deg);
 }
 
@@ -130,11 +98,6 @@ body{
     color: white;
 }
 
-.counters{
-    display: flex;
-    justify-content: center;
-}
-
 button{
     width: 200px;
     font-size: 28px;
@@ -144,6 +107,54 @@ button{
     color:white;
     border-radius: 8px;
     cursor: pointer;
+}
+
+#message-container{
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 28px;
+    height: 420px;
+    width:420px;
+    background-color: #4e4b4b;
+    color: white;
+    margin: 50px auto;
+}
+
+#message{
+    font-size: 32px;
+    font-family: orbitron;
+}
+
+
+#score-boards{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width:100%;
+    margin: 0 auto;
+    font-family: orbitron;
+    font-weight: bolder;
+    color: red;
+    background-color: maroon;
+    padding: 20px 5px;
+    border-radius: 5px;
+    font-size: 24px;
+}
+
+#count, #longest-count{
+    width: fit-content;
+    height: fit-content;
+}
+
+.counters{
+    display: flex;
+    justify-content: center;
+}
+
+#continue-btn{
+    display: none;
 }
 
 @media only screen and (min-width: 1600px){
@@ -157,8 +168,9 @@ button{
         width:588px;
     }
 
-    #game-over{
-        width:90%;
+    #message-container{
+        height: 800px;
+        width:800px;
     }
     
     .game-btn {
@@ -169,13 +181,13 @@ button{
     .red{
         margin-top: 20px;
         margin-left: 280px;
-        box-shadow: 2px 2px 0px rgb(138, 20, 20);
+        box-shadow: 2px 2px 0px #980b0b;
     }
 
     .yellow{
         margin-top: 20px;
         margin-left: -280px;
-        box-shadow: -2px 2px 0px rgb(183, 183, 36);
+        box-shadow: -2px 2px 0px rgb(141 141 8);
     }
       
     .blue{
@@ -220,7 +232,7 @@ button{
         width:294px;
     }
 
-    #game-over{
+    #message-container{
         width:90%;
     }
     
@@ -232,13 +244,13 @@ button{
     .red{
         margin-top: 10px;
         margin-left: 140px;
-        box-shadow: 2px 2px 0px rgb(138, 20, 20);
+        box-shadow: 2px 2px 0px #980b0b;
     }
 
     .yellow{
         margin-top: 10px;
         margin-left: -140px;
-        box-shadow: -2px 2px 0px rgb(183, 183, 36);
+        box-shadow: -2px 2px 0px rgb(141 141 8);
     }
       
     .blue{
