@@ -169,7 +169,7 @@ button{
     }
 
     #message-container{
-        height: 800px;
+        height: 500px;
         width:800px;
     }
     
@@ -281,6 +281,7 @@ button{
         width:100%;
         padding: 2% 1%;
         justify-content: space-between;
+        font-size:18px;
     }
 }
 
